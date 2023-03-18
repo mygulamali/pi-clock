@@ -5,3 +5,4 @@
   roles:
   - facts
   - microdotphat
+  - deploy

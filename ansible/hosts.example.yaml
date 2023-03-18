@@ -7,3 +7,5 @@ all:
       # SSH key has not added to authorized_keys on the Raspberry Pi
       #ansible_user: pi
       #ansible_password: raspberry
+      app:
+        path: /opt

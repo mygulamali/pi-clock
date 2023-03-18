@@ -1,0 +1,23 @@
+---
+- name: Synchronize clock app
+  synchronize:
+    src: ../clock.py
+    dest: "{{ app.path }}"
+    owner: no
+    group: no
+    delete: yes
+    recursive: yes
+
+- name: Copy pi-clock service
+  template:
+    src: pi-clock.service.j2
+    dest: /etc/systemd/system/pi-clock.service
+    backup: yes
+    mode: 0644
+
+- name: Restart pi-clock service
+  systemd:
+    service: pi-clock
+    enabled: yes
+    daemon_reload: yes
+    state: restarted
