@@ -1,0 +1,16 @@
+---
+- name: Configure hardware interfaces
+  command: >
+    raspi-config nonint do_i2c 0
+
+- name: Install dependencies
+  apt:
+    name:
+    - python3-numpy
+    - python3-smbus
+    install_recommends: no
+    state: latest
+
+- name: Install Python packages
+  pip:
+    name: microdotphat
