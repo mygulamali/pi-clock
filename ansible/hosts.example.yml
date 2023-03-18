@@ -1,0 +1,9 @@
+---
+all:
+  hosts:
+    raspberrypi.local:
+      ansible_connection: ssh
+      # Uncomment the next two lines, and set the username and password if the
+      # SSH key has not added to authorized_keys on the Raspberry Pi
+      #ansible_user: pi
+      #ansible_password: raspberry
