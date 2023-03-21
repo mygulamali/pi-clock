@@ -3,20 +3,23 @@
 import datetime
 import time
 
-from microdotphat import clear, set_brightness, set_decimal, show, write_string
+import microdotphat as mdp
 
 
-set_brightness(0.1)
+mdp.set_brightness(0.1)
 
 while True:
-    clear()
+    mdp.clear()
+
     t = datetime.datetime.now()
     if t.second % 2 == 0:
-        set_decimal(2, 1)
-        set_decimal(4, 1)
+        mdp.set_decimal(2, 1)
+        mdp.set_decimal(4, 1)
     else:
-        set_decimal(2, 0)
-        set_decimal(4, 0)
-    write_string(t.strftime('%H%M%S'), kerning=False)
-    show()
+        mdp.set_decimal(2, 0)
+        mdp.set_decimal(4, 0)
+
+    mdp.write_string(t.strftime('%H%M%S'), kerning=False)
+    mdp.show()
+
     time.sleep(0.05)
