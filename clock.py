@@ -6,6 +6,7 @@ import time
 import microdotphat as mdp
 
 
+mdp.set_rotate180(True)
 mdp.set_brightness(0.1)
 
 while True:
