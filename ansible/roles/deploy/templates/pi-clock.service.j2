@@ -8,7 +8,7 @@ User=root
 Group=root
 WorkingDirectory={{ app.path }}
 PIDFile={{ app.path }}/app.pid
-ExecStart=python {{ app.path }}/clock.py
+ExecStart=python {{ app.path }}/clock/app
 ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s QUIT $MAINPID
 
