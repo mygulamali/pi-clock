@@ -1,34 +1,19 @@
-import datetime
 import signal
 import sys
 import time
 
-import microdotphat as mdp
+from clock import Clock
 
 
 def terminate(sig_no, frame):
-    mdp.clear()
-    mdp.show()
+    Clock.clear()
     sys.exit(0)
 
 
 signal.signal(signal.SIGTERM, terminate)
 
-mdp.set_rotate180(True)
-mdp.set_brightness(0.1)
-
+clock = Clock(rotate180=True)
+clock.start()
 while True:
-    mdp.clear()
-
-    t = datetime.datetime.now()
-    if t.second % 2 == 0:
-        mdp.set_decimal(2, 1)
-        mdp.set_decimal(4, 1)
-    else:
-        mdp.set_decimal(2, 0)
-        mdp.set_decimal(4, 0)
-
-    mdp.write_string(t.strftime('%H%M%S'), kerning=False)
-    mdp.show()
-
+    clock.tick()
     time.sleep(0.05)
