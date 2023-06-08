@@ -2,7 +2,7 @@ import signal
 import sys
 import time
 
-from clock import Clock
+from clock import ClockWithButtons as Clock
 
 
 def terminate(sig_no, frame):
