@@ -10,7 +10,7 @@ WorkingDirectory={{ app.path }}
 PIDFile={{ app.path }}/app.pid
 ExecStart=python {{ app.path }}/clock/app
 ExecReload=/bin/kill -s HUP $MAINPID
-ExecStop=/bin/kill -s QUIT $MAINPID
+ExecStop=/bin/kill -s TERM $MAINPID
 
 [Install]
 WantedBy=multi-user.target

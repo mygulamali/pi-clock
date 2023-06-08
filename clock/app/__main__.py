@@ -1,10 +1,18 @@
-#!/usr/bin/env python
-
 import datetime
+import signal
+import sys
 import time
 
 import microdotphat as mdp
 
+
+def terminate(sig_no, frame):
+    mdp.clear()
+    mdp.show()
+    sys.exit(0)
+
+
+signal.signal(signal.SIGTERM, terminate)
 
 mdp.set_rotate180(True)
 mdp.set_brightness(0.1)
