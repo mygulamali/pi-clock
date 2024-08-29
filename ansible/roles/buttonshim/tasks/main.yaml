@@ -1,3 +1,6 @@
-- name: Install Python packages
-  pip:
-    name: buttonshim
+- name: Install dependencies
+  apt:
+    name:
+    - python3-buttonshim
+    install_recommends: no
+    state: latest
